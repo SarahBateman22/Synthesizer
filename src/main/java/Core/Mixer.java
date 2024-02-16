@@ -12,23 +12,26 @@ public class Mixer implements AudioComponent{
 
     @Override
     public AudioClip getClip() {
-        // Initialize an empty AudioClip
-        AudioClip sample = new AudioClip();
+        // Initialize an empty AudioClip to store the mixed output
+        AudioClip mixedClip = new AudioClip();
 
-        // Mix audio from all input components
-        for (AudioComponent input : inputs) {
+        // Check if there are any inputs connected
+        if (!inputs.isEmpty()) {
+            // Scale factor to prevent blowing out the speaker, could be adjusted based on the inputs count
+            double scaleFactor = 0.4 / inputs.size();
 
-            VolumeAdjuster lowerVolume = new VolumeAdjuster(.25);
-            lowerVolume.connectInput(input);
-
-            AudioClip inputClip = lowerVolume.getClip();
-
-
-            for (int i = 0; i < AudioClip.TOTAL_SAMPLES; i++) {
-                sample.setSample(i, (inputClip.getSample(i) + sample.getSample(i)));
+            // Mix audio from all input components
+            for (AudioComponent input : inputs) {
+                AudioClip inputClip = input.getClip();
+                for (int i = 0; i < AudioClip.TOTAL_SAMPLES; i++) {
+                    // Scale the sample from each input before adding it to the mixed output
+                    int scaledSample = (int) (inputClip.getSample(i) * scaleFactor);
+                    mixedClip.setSample(i, mixedClip.getSample(i) + scaledSample);
+                }
             }
         }
-        return sample;
+
+        return mixedClip;
     }
 
     //always return false so that you can add more inputs

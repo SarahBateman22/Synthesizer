@@ -1,2 +1,2 @@
 # Synthesizer
-Audio wave synthesizer with GUI - Java
+Audio wave synthesizer with GUI - Java and JavaFX

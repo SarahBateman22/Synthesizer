@@ -21,6 +21,7 @@ public class SineWaveWidget extends AudioComponentWidget {
         VBox rightSide = new VBox();
         rightSide.setSpacing(5);
         rightSide.setAlignment(Pos.CENTER_RIGHT);
+        baseLayout.setStyle("-fx-border-color: black; -fx-background-color: white;");
         //-------------------------------------------------------------------------------------------
 
         //make nodes ---------------------------------------------------------------------------------

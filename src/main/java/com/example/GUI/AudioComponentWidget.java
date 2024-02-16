@@ -14,13 +14,13 @@ import javafx.scene.text.TextAlignment;
 public class AudioComponentWidget extends Pane {
     //define member variables---------------------------------------------------------------------
     public AudioComponent ac_;
-    AnchorPane parent_;
+    static AnchorPane parent_;
     VBox verticalLayout;
     HBox baseLayout;
     SynthesizerApplication parentApplication;
     protected double mouseX;
     protected double mouseY;
-    Line line;
+    static Line line;
     //--------------------------------------------------------------------------------------------
 
     public AudioComponentWidget(AudioComponent ac, AnchorPane parent, SynthesizerApplication parentApplication, String myWidgetLabel){
@@ -36,7 +36,7 @@ public class AudioComponentWidget extends Pane {
         baseLayout.setPrefHeight(60);
         verticalLayout = new VBox();
         verticalLayout.setAlignment(Pos.CENTER);
-        baseLayout.setStyle("-fx-border-color: lightgrey; -fx-background-color: lightgrey;");
+        baseLayout.setStyle("-fx-border-color: #edeae1; -fx-background-color: #edeae1;");
         VBox rightSide = new VBox();
         rightSide.setSpacing(5);
         //----------------------------------------------------------------------------------------
