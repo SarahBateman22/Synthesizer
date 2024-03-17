@@ -12,4 +12,5 @@ GUI with notes A, B, and C generated for example showcase, as well as a custom f
 
 
 ![synth (1)](https://github.com/SarahBateman22/Synthesizer/assets/142822160/5ee712fc-6d81-4783-a248-8fc88249de6f)
+
 Button generation and destruction shown, along with mixing and volume adjusting components.
